@@ -3,11 +3,18 @@
 // Include custom variables default overrides here
 
 $primary: rgb(127, 24, 127);
+$primary-opacity-8: rgba(127, 24, 127, 0.8);
 $gray: #E6E6E6;
+$sale: rgba(167, 4, 4, 0.8);
+$headings-font-family: 'Nunito', sans-serif;
+$headings-font-weight: 800;
+$font-family-base: 'Poppins', sans-serif;
 
 $theme-colors:(
     "primary":$primary,
-    "gray": $gray
+    "primary-opacity-8": $primary-opacity-8,
+    "gray": $gray,
+    "sale": $sale,
 );
 
 // Create your own map
@@ -17,6 +24,33 @@ $custom-color: (
 
 // Merge maps
 $theme-colors: map-merge($theme-colors, $custom-color);
+
+$utilities: (
+    "rounded": (
+        property:border-radius,
+        class: rounded,
+        values: (
+            null: 2rem,
+            circle:100%
+        )
+
+    )
+);
+
+
+// "rounded": (
+//       property: border-radius,
+//       class: rounded,
+//       values: (
+//         null: $border-radius,
+//         0: 0,
+//         1: $border-radius-sm,
+//         2: $border-radius,
+//         3: $border-radius-lg,
+//         circle: 50%,
+//         pill: $border-radius-pill
+//       )
+//     ),
 
 @import "./bootstrap/scss/bootstrap";
 
@@ -84,6 +118,7 @@ $theme-colors: map-merge($theme-colors, $custom-color);
     }
 
     a {
+        text-decoration: uppercase;
         color: var(--bs-white);
         padding: 0.6rem 1.4rem;
     }
@@ -97,4 +132,95 @@ $theme-colors: map-merge($theme-colors, $custom-color);
         color: white;
         border: none;
     }
+
+    .sub-menu {
+
+        li {
+
+            background-color: $primary;
+            
+        }
+    }
+}
+
+
+/************** FRONT PAGE ***************/
+
+/************** SLIDER ***************/
+
+.carousel {
+
+    .carousel.control.prev, .carousel.control.next {
+
+        width:9%;
+
+    }
+}
+
+
+/************** CATEGORIES ***************/
+
+.categories {
+
+    background-color: #F9F9F9;
+
+        .categories__col {
+            height: 212px;
+
+            img {
+
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .sale {
+
+        }
+
+        @include media-breakpoint-up(md) {
+
+            .categories__col {
+                height: 336px;
+            }
+        }
+    
+}
+
+/************** FOOTER ***************/
+
+.site-footer {
+
+    .menu {
+
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;
+
+        a {
+            color: $white;
+            text-decoration: none;
+            display: block;
+            padding: 0.3rem 0;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+
+
+.popular-products, .special-offers {
+    .add_to_cart_button {
+        display: block!important;
+        text-align: center;
+    }
+
+ .attachment-woocommerce_thumbnail  {
+
+    border-radius: 20px;
+    overflow: hidden;
+ }
 }
